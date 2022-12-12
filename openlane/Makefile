@@ -53,8 +53,8 @@ docker_startup_mode = $(shell test -t 0 && echo "-it" || echo "--rm" )
 docker_run = \
 	docker run $(docker_startup_mode) \
 	$(docker_mounts) \
-	$(docker_env) \
-	-u $(shell id -u $(USER)):$(shell id -g $(USER))
+	$(docker_env) #\
+	#-u $(shell id -u $(USER)):$(shell id -g $(USER))
 
 list:
 	@echo $(designs)
