@@ -1,0 +1,26 @@
+(DELAYFILE
+ (SDFVERSION "3.0")
+ (DESIGN "user_project_wrapper")
+ (DATE "Mon Dec 12 09:03:30 2022")
+ (VENDOR "Parallax")
+ (PROGRAM "STA")
+ (VERSION "2.3.2")
+ (DIVIDER .)
+ (TIMESCALE 1ns)
+ (CELL
+  (CELLTYPE "user_project_wrapper")
+  (INSTANCE)
+  (DELAY
+   (ABSOLUTE
+    (INTERCONNECT io_in[10] mprj.s1 (5.055:5.055:5.055) (3.143:3.143:3.143))
+    (INTERCONNECT io_in[5] mprj.i0 (3.068:3.068:3.068) (1.911:1.911:1.911))
+    (INTERCONNECT io_in[6] mprj.i1 (3.071:3.071:3.071) (1.914:1.914:1.914))
+    (INTERCONNECT io_in[7] mprj.i2 (2.738:2.738:2.738) (1.706:1.706:1.706))
+    (INTERCONNECT io_in[8] mprj.i3 (2.506:2.506:2.506) (1.562:1.562:1.562))
+    (INTERCONNECT io_in[9] mprj.s0 (2.317:2.317:2.317) (1.444:1.444:1.444))
+    (INTERCONNECT mprj.bfg_out io_out[12] (0.112:0.112:0.112))
+    (INTERCONNECT mprj.gf_out io_out[11] (0.187:0.187:0.187))
+   )
+  )
+ )
+)

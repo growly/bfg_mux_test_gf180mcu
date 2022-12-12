@@ -16,7 +16,7 @@
 MAKEFLAGS+=--warn-undefined-variables
 
 export OPENLANE_RUN_TAG = $(shell date '+%y_%m_%d_%H_%M')
-OPENLANE_TAG ?= 2022.10.20
+OPENLANE_TAG ?= 2022.11.29
 OPENLANE_IMAGE_NAME ?= efabless/openlane:$(OPENLANE_TAG)
 designs = $(shell find * -maxdepth 0 -type d)
 current_design = null
@@ -53,15 +53,15 @@ docker_startup_mode = $(shell test -t 0 && echo "-it" || echo "--rm" )
 docker_run = \
 	docker run $(docker_startup_mode) \
 	$(docker_mounts) \
-	$(docker_env) \
-	-u $(shell id -u $(USER)):$(shell id -g $(USER))
+	$(docker_env) #\
+	#-u $(shell id -u $(USER)):$(shell id -g $(USER))
 
 list:
 	@echo $(designs)
 
 .PHONY: $(designs)
 $(designs) : export current_design=$@
-$(designs) : % : ./%/config.json
+$(designs) : % : ./%/config.tcl
 ifneq (,$(wildcard ./$(current_design)/interactive.tcl))
 	$(docker_run) \
 		$(OPENLANE_IMAGE_NAME) sh -c $(openlane_cmd_interactive)

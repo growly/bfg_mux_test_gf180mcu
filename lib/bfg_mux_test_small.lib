@@ -1,0 +1,220 @@
+library (bfg_mux_test_small) {
+  comment                        : "";
+  delay_model                    : table_lookup;
+  simulation                     : false;
+  capacitive_load_unit (1,pF);
+  leakage_power_unit             : 1pW;
+  current_unit                   : "1A";
+  pulling_resistance_unit        : "1ohm";
+  time_unit                      : "1ns";
+  voltage_unit                   : "1v";
+  library_features(report_delay_calculation);
+
+  input_threshold_pct_rise : 50;
+  input_threshold_pct_fall : 50;
+  output_threshold_pct_rise : 50;
+  output_threshold_pct_fall : 50;
+  slew_lower_threshold_pct_rise : 30;
+  slew_lower_threshold_pct_fall : 30;
+  slew_upper_threshold_pct_rise : 70;
+  slew_upper_threshold_pct_fall : 70;
+  slew_derate_from_library : 1.0;
+
+
+  nom_process                    : 1.0;
+  nom_temperature                : 25.0;
+  nom_voltage                    : 5.00;
+
+  lu_table_template(template_1) {
+    variable_1 : total_output_net_capacitance;
+    index_1 ("0.00100,  0.00758,  0.03066,  0.07475,  0.14340,  0.23980,  0.36660,  0.52640,  0.72140,  0.95390");
+  }
+  lu_table_template(template_10) {
+    variable_1 : total_output_net_capacitance;
+    index_1 ("0.00100,  0.00758,  0.03066,  0.07475,  0.14340,  0.23980,  0.36660,  0.52640,  0.72140,  0.95390");
+  }
+  lu_table_template(template_11) {
+    variable_1 : total_output_net_capacitance;
+    index_1 ("0.00100,  0.00758,  0.03066,  0.07475,  0.14340,  0.23980,  0.36660,  0.52640,  0.72140,  0.95390");
+  }
+  lu_table_template(template_12) {
+    variable_1 : total_output_net_capacitance;
+    index_1 ("0.00100,  0.00758,  0.03066,  0.07475,  0.14340,  0.23980,  0.36660,  0.52640,  0.72140,  0.95390");
+  }
+  lu_table_template(template_2) {
+    variable_1 : total_output_net_capacitance;
+    index_1 ("0.00100,  0.00758,  0.03066,  0.07475,  0.14340,  0.23980,  0.36660,  0.52640,  0.72140,  0.95390");
+  }
+  lu_table_template(template_3) {
+    variable_1 : total_output_net_capacitance;
+    index_1 ("0.00100,  0.00758,  0.03066,  0.07475,  0.14340,  0.23980,  0.36660,  0.52640,  0.72140,  0.95390");
+  }
+  lu_table_template(template_4) {
+    variable_1 : total_output_net_capacitance;
+    index_1 ("0.00100,  0.00758,  0.03066,  0.07475,  0.14340,  0.23980,  0.36660,  0.52640,  0.72140,  0.95390");
+  }
+  lu_table_template(template_5) {
+    variable_1 : total_output_net_capacitance;
+    index_1 ("0.00100,  0.00758,  0.03066,  0.07475,  0.14340,  0.23980,  0.36660,  0.52640,  0.72140,  0.95390");
+  }
+  lu_table_template(template_6) {
+    variable_1 : total_output_net_capacitance;
+    index_1 ("0.00100,  0.00758,  0.03066,  0.07475,  0.14340,  0.23980,  0.36660,  0.52640,  0.72140,  0.95390");
+  }
+  lu_table_template(template_7) {
+    variable_1 : total_output_net_capacitance;
+    index_1 ("0.00100,  0.00758,  0.03066,  0.07475,  0.14340,  0.23980,  0.36660,  0.52640,  0.72140,  0.95390");
+  }
+  lu_table_template(template_8) {
+    variable_1 : total_output_net_capacitance;
+    index_1 ("0.00100,  0.00758,  0.03066,  0.07475,  0.14340,  0.23980,  0.36660,  0.52640,  0.72140,  0.95390");
+  }
+  lu_table_template(template_9) {
+    variable_1 : total_output_net_capacitance;
+    index_1 ("0.00100,  0.00758,  0.03066,  0.07475,  0.14340,  0.23980,  0.36660,  0.52640,  0.72140,  0.95390");
+  }
+
+  cell ("bfg_mux_test_small") {
+    pin("bfg_out") {
+      direction : output;
+      capacitance : 0.0729;
+    }
+    pin("gf_out") {
+      direction : output;
+      capacitance : 0.0729;
+      timing() {
+        related_pin : "i0";
+        timing_sense : positive_unate;
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("2.11613,2.13873,2.20015,2.30387,2.46220,2.68541,2.97966,3.35166,3.80662,4.34862");
+	}
+	rise_transition(template_1) {
+          values("0.07574,0.09981,0.18265,0.35178,0.63060,1.02900,1.55396,2.21311,3.02112,3.98604");
+	}
+	cell_fall(template_2) {
+          values("2.30790,2.33236,2.40120,2.51514,2.68577,2.92486,3.23985,3.63671,4.12257,4.70171");
+	}
+	fall_transition(template_2) {
+          values("0.07239,0.10008,0.18792,0.35592,0.63295,1.03200,1.55900,2.22558,3.03786,4.01014");
+	}
+      }
+      timing() {
+        related_pin : "i1";
+        timing_sense : positive_unate;
+        timing_type : combinational;
+	cell_rise(template_3) {
+          values("2.08210,2.10470,2.16611,2.26984,2.42816,2.65137,2.94562,3.31762,3.77258,4.31458");
+	}
+	rise_transition(template_3) {
+          values("0.07574,0.09981,0.18265,0.35178,0.63060,1.02900,1.55396,2.21311,3.02112,3.98604");
+	}
+	cell_fall(template_4) {
+          values("2.28122,2.30567,2.37451,2.48845,2.65909,2.89818,3.21316,3.61002,4.09589,4.67502");
+	}
+	fall_transition(template_4) {
+          values("0.07239,0.10008,0.18792,0.35592,0.63295,1.03200,1.55900,2.22558,3.03786,4.01014");
+	}
+      }
+      timing() {
+        related_pin : "i2";
+        timing_sense : positive_unate;
+        timing_type : combinational;
+	cell_rise(template_5) {
+          values("2.13195,2.15454,2.21596,2.31969,2.47801,2.70122,2.99547,3.36747,3.82243,4.36443");
+	}
+	rise_transition(template_5) {
+          values("0.07574,0.09981,0.18265,0.35178,0.63060,1.02900,1.55396,2.21311,3.02112,3.98604");
+	}
+	cell_fall(template_6) {
+          values("2.32488,2.34933,2.41817,2.53211,2.70275,2.94183,3.25682,3.65368,4.13954,4.71868");
+	}
+	fall_transition(template_6) {
+          values("0.07239,0.10008,0.18792,0.35592,0.63295,1.03200,1.55900,2.22558,3.03786,4.01014");
+	}
+      }
+      timing() {
+        related_pin : "i3";
+        timing_sense : positive_unate;
+        timing_type : combinational;
+	cell_rise(template_7) {
+          values("2.13440,2.15700,2.21842,2.32214,2.48047,2.70368,2.99793,3.36993,3.82489,4.36689");
+	}
+	rise_transition(template_7) {
+          values("0.07574,0.09981,0.18265,0.35178,0.63060,1.02900,1.55396,2.21311,3.02112,3.98604");
+	}
+	cell_fall(template_8) {
+          values("2.33188,2.35633,2.42517,2.53911,2.70975,2.94884,3.26382,3.66069,4.14655,4.72568");
+	}
+	fall_transition(template_8) {
+          values("0.07239,0.10008,0.18792,0.35592,0.63295,1.03200,1.55900,2.22558,3.03786,4.01014");
+	}
+      }
+      timing() {
+        related_pin : "s0";
+        timing_type : combinational;
+	cell_rise(template_9) {
+          values("3.17895,3.20155,3.26296,3.36669,3.52501,3.74823,4.04248,4.41448,4.86944,5.41144");
+	}
+	rise_transition(template_9) {
+          values("0.07574,0.09981,0.18265,0.35178,0.63060,1.02900,1.55396,2.21311,3.02112,3.98604");
+	}
+	cell_fall(template_10) {
+          values("3.17210,3.19655,3.26539,3.37934,3.54997,3.78906,4.10404,4.50091,4.98677,5.56591");
+	}
+	fall_transition(template_10) {
+          values("0.07239,0.10008,0.18792,0.35592,0.63295,1.03200,1.55900,2.22558,3.03786,4.01014");
+	}
+      }
+      timing() {
+        related_pin : "s1";
+        timing_type : combinational;
+	cell_rise(template_11) {
+          values("2.22210,2.24470,2.30612,2.40984,2.56817,2.79138,3.08563,3.45763,3.91259,4.45459");
+	}
+	rise_transition(template_11) {
+          values("0.07574,0.09981,0.18265,0.35178,0.63060,1.02900,1.55396,2.21311,3.02112,3.98604");
+	}
+	cell_fall(template_12) {
+          values("2.21055,2.23500,2.30384,2.41778,2.58842,2.82751,3.14249,3.53935,4.02522,4.60435");
+	}
+	fall_transition(template_12) {
+          values("0.07239,0.10008,0.18792,0.35592,0.63295,1.03200,1.55900,2.22558,3.03786,4.01014");
+	}
+      }
+    }
+    pin("i0") {
+      direction : input;
+      capacitance : 0.0056;
+    }
+    pin("i1") {
+      direction : input;
+      capacitance : 0.0047;
+    }
+    pin("i2") {
+      direction : input;
+      capacitance : 0.0064;
+    }
+    pin("i3") {
+      direction : input;
+      capacitance : 0.0058;
+    }
+    pin("s0") {
+      direction : input;
+      capacitance : 0.0067;
+    }
+    pin("s1") {
+      direction : input;
+      capacitance : 0.0059;
+    }
+    pin("vdd") {
+      direction : input;
+      capacitance : 0.0000;
+    }
+    pin("vss") {
+      direction : input;
+      capacitance : 0.0000;
+    }
+  }
+
+}
